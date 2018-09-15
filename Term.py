@@ -8,3 +8,10 @@ class Term:
         print("The coefficient is -> ",  self.coefficient)
         print("The degree of x is -> ", self.variable_degree)
 
+    def addCoefficient(self, term2):
+        if self.coefficient != term2.coefficient:
+            return
+        return self.coefficient + term2.coefficient
+
+
+

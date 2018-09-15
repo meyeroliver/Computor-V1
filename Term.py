@@ -2,6 +2,7 @@ class Term:
     def __init__(self, string):
         self.coefficient = int(string.split('*')[0])
         self.variable_degree = int(string.split('*')[1].split('^')[1])
+        self.checksum = 0
 
     def printAttributes(self):
         print("The coefficient is -> ",  self.coefficient)

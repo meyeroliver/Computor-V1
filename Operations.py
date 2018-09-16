@@ -12,3 +12,11 @@ def ft_sqrt(num):
         if -Constants.MINDIFF <= diff <= Constants.MINDIFF:
             break
     return root
+
+
+def main():
+    return 0
+
+
+if __name__ == "__main__":
+    main()

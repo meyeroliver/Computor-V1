@@ -25,7 +25,7 @@ class Solver:
         self.solution.append(solution_1)
         self.solution.append(solution_2)
         return self.solution
-    
+
     def main(self):
         return 0
 

@@ -25,7 +25,6 @@ def ft_power(num, power):
     return summer
 
 
-
 def main():
     return 0
 

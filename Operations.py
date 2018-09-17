@@ -16,6 +16,10 @@ def ft_sqrt(num):
     return root
 
 
+def ft_abs(num):
+    return -1 * num
+
+
 def ft_power(num, power):
     i = 0
     summer = 1

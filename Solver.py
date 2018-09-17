@@ -14,7 +14,7 @@ class Solver:
         if self.b.coefficient == 0:
             return None
         c_coefficient = -1 * self.c.coefficient
-        solution_1 = c_coefficient / self.b.coefficient
+        solution_1 = float(c_coefficient) / float(self.b.coefficient)
         self.solution.append(solution_1)
         return self.solution
 
@@ -29,6 +29,7 @@ class Solver:
         self.solution.append(solution_2)
         return self.solution
 
+    @property
     def main(self):
         return 0
 

@@ -1,4 +1,5 @@
 from Term import *
+from Solver import *
 
 
 class Equation:
@@ -30,7 +31,7 @@ class Equation:
                 sign = '+'
             if char == '=':
                 found_equal = 1
-            if char == '+' or char == '-':
+            if char == '+' or char == '-' or char == '=':
                 final_term = sign + term
                 # need to find a better way to do this
                 self.equation_items.append(final_term.replace(' ', '').replace('=', ''))
@@ -62,6 +63,7 @@ class Equation:
                 self.b.add_coefficient(item)
             else:
                 self.c.add_coefficient(item)
+        self.print_reduced_equation()
 
     def check_highest_degree(self):
         if self.a.coefficient != 0:
@@ -94,11 +96,19 @@ class Equation:
         print("Reduced form ->  "+reduced_equation_string)
 
 
-sum = "1*X^2 - 5*X^1 + 2*X^0 = -2*X^1"
-myEquation = Equation(sum)
-myEquation.processing_string()
-myEquation.reduce_equation()
-myEquation.print_reduced_equation()
-myEquation.print_highest_degree(myEquation.check_highest_degree())
-myEquation.print_discriminant_result(myEquation.check_discriminant())
-# myEquation.print_equation_items()
+if __name__ == "__main__":
+    summer_1 = "1*X^2 - 5*X^1 + 2*X^0 = -2*X^1"
+    summer_2 = "0*X^2 + 2*X^1 - 12*X^0 = 4*X^1"
+    myEquation = Equation(summer_2)
+    myEquation.processing_string()
+    myEquation.reduce_equation()
+    highest_degree = int(myEquation.check_highest_degree())
+    myEquation.print_highest_degree(highest_degree)
+    workerBee = Solver(myEquation.a, myEquation.b, myEquation.c)
+    if highest_degree == 1:
+        print("The solution is :")
+        print(workerBee.solve_linear_equation())
+    elif highest_degree == 2:
+        discriminant = myEquation.check_discriminant()
+        myEquation.print_discriminant_result(discriminant)
+

@@ -2,7 +2,7 @@ class Term:
     def __init__(self, string):
         splitter = string.split('*')
         if '/' in splitter[0]:
-            div = splitter.split('/')
+            div = splitter[0].split('/')
             splitter[0] = str(float(div[0]) / float(div[1]))
         self.coefficient = float(splitter[0])
         self.variable_degree = float(splitter[1].split('^')[1])

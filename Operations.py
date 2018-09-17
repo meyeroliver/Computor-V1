@@ -20,6 +20,13 @@ def ft_abs(num):
     return -1 * num
 
 
+def ft_complex(real, imaginary):
+    my_complex = []
+    my_complex.append(real / 2)
+    my_complex.append(imaginary/2)
+    return my_complex
+
+
 def ft_power(num, power):
     i = 0
     summer = 1

@@ -4,6 +4,8 @@ import Constants
 def ft_sqrt(num):
     if num <= 0:
         return 0
+    if num == 1:
+        return 1
     root = float(num / 3)
     while True:
         last = root
@@ -26,7 +28,7 @@ def ft_power(num, power):
 
 
 def main():
-    print(ft_sqrt(3))
+    print(ft_sqrt(1))
 
 
 if __name__ == "__main__":

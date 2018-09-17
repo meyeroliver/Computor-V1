@@ -1,7 +1,11 @@
 class Term:
     def __init__(self, string):
-        self.coefficient = float(string.split('*')[0])
-        self.variable_degree = float(string.split('*')[1].split('^')[1])
+        splitter = string.split('*')
+        if '/' in splitter[0]:
+            div = splitter.split('/')
+            splitter[0] = str(float(div[0]) / float(div[1]))
+        self.coefficient = float(splitter[0])
+        self.variable_degree = float(splitter[1].split('^')[1])
         self.checksum = 0
         self.term_str = ""
 

@@ -4,11 +4,11 @@ import Constants
 def ft_sqrt(num):
     if num <= 0:
         return 0
-    root = num / 3
+    root = float(num / 3)
     while True:
         last = root
         root = (root + num / root) / 2
-        diff = root - last
+        diff = float(root - last)
         if -Constants.MINDIFF <= diff <= Constants.MINDIFF:
             break
     return root
@@ -26,7 +26,7 @@ def ft_power(num, power):
 
 
 def main():
-    return 0
+    print(ft_sqrt(3))
 
 
 if __name__ == "__main__":

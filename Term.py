@@ -1,7 +1,7 @@
 class Term:
     def __init__(self, string):
-        self.coefficient = int(string.split('*')[0])
-        self.variable_degree = int(string.split('*')[1].split('^')[1])
+        self.coefficient = float(string.split('*')[0])
+        self.variable_degree = float(string.split('*')[1].split('^')[1])
         self.checksum = 0
         self.term_str = ""
 

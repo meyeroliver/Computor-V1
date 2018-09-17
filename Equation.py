@@ -105,7 +105,8 @@ if __name__ == "__main__":
     summer_2 = "-2*X^1 + 0*X^2 + 2*X^1 - 18*X^0 = -4*X^1 + 6*X^0"
     summer_3 = "-10*X^1 + 0*X^2 + 0*X^1 = -4*X^0"
     summer_4 = "4*X^1 = 4*X^1"
-    myEquation = Equation(summer_1)
+    summer = input("Please enter in an equation -> ")
+    myEquation = Equation(summer)
     myEquation.processing_string()
     myEquation.reduce_equation()
     highest_degree = int(myEquation.check_highest_degree_1())

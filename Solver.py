@@ -9,7 +9,10 @@ class Solver:
         self.c = c
         self.solution = []
 
+    @property
     def solve_linear_equation(self):
+        if self.b.coefficient == 0:
+            return None
         c_coefficient = -1 * self.c.coefficient
         solution_1 = c_coefficient / self.b.coefficient
         self.solution.append(solution_1)

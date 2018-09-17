@@ -32,8 +32,10 @@ class Equation:
             if char == '=':
                 found_equal = 1
             if char == '+' or char == '-' or char == '=':
+                if term == ' ' or term == '':
+                    sign = char
+                    continue
                 final_term = sign + term
-                # need to find a better way to do this
                 self.equation_items.append(final_term.replace(' ', '').replace('=', ''))
                 term = ''
                 if char != '=':
@@ -98,8 +100,9 @@ class Equation:
 
 if __name__ == "__main__":
     summer_1 = "1*X^2 - 5*X^1 + 2*X^0 = -2*X^1"
-    summer_2 = "0*X^2 + 2*X^1 - 12*X^0 = 4*X^1"
-    myEquation = Equation(summer_2)
+    summer_2 = "-2*X^1 + 0*X^2 + 2*X^1 - 18*X^0 = -4*X^1 + 6*X^0"
+    summer_3 = "-10*X^0 + 0*X^2 + 2*X^1 = -4*X^0"
+    myEquation = Equation(summer_3)
     myEquation.processing_string()
     myEquation.reduce_equation()
     highest_degree = int(myEquation.check_highest_degree())
@@ -107,7 +110,7 @@ if __name__ == "__main__":
     workerBee = Solver(myEquation.a, myEquation.b, myEquation.c)
     if highest_degree == 1:
         print("The solution is :")
-        print(workerBee.solve_linear_equation())
+        print(workerBee.solve_linear_equation()[0])
     elif highest_degree == 2:
         discriminant = myEquation.check_discriminant()
         myEquation.print_discriminant_result(discriminant)

@@ -101,10 +101,7 @@ class Equation:
 
 
 if __name__ == "__main__":
-    summer_1 = "1*X^2 -5*X^1 + 2*X^0 = -2*X^1"
-    summer_2 = "-2*X^1 + 0*X^2 + 2*X^1 - 18*X^0 = -4*X^1 + 6*X^0"
-    summer_3 = "-10*X^1 + 0*X^2 + 0*X^1 = -4*X^0"
-    summer_4 = "4*X^1 = 4*X^1"
+    summer_1 = input("Please enter in a polynomial -> ")
     myEquation = Equation(summer_1)
     myEquation.processing_string()
     myEquation.reduce_equation()

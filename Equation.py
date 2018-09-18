@@ -103,8 +103,14 @@ class Equation:
 if __name__ == "__main__":
     summer_1 = "1*X^2 -5*X^1 + 2*X^0 = -2*X^1"
     summer_2 = "-2*X^1 + 0*X^2 + 2*X^1 - 18*X^0 = -4*X^1 + 6*X^0"
-    summer_3 = "-10*X^1 + 0*X^2 + 0*X^1 = -4*X^0"
+    summer_3 = "-10/5*X^1 + 0*X^2 + 0*X^1 = -4*X^0"
     summer_4 = "4*X^1 = 4*X^1"
+    summer_5 = "4*X^0 = 4*X^0"
+    summer_6 = "4*X^0 = 8*X^0"
+    summer_7 = "5.5*X^0 = 4*X^0 + 7.2*X^1"
+    summer_8 = "3*X^2 + 13.1*X^1 + 5*X^0 = 1*X^0 + 1*X^1"
+    summer_9 = "3*X^2 + 3*X^1 + 5*X^0 = 1*X^0 + 1*X^1 "
+
     summer = input("Please enter in an equation -> ")
     myEquation = Equation(summer)
     myEquation.processing_string()
@@ -124,9 +130,14 @@ if __name__ == "__main__":
     elif highest_degree == 2:
         discriminant = myEquation.check_discriminant()
         myEquation.print_discriminant_result(discriminant)
-        result = workerBee.solver_quadratic_equation()
-        print("X1 = " + str(result[0]))
-        print("X2 = " + str(result[1]))
+        if discriminant < 0:
+            result = workerBee.solve_complex_equation()
+            print("Z1 = " + result)
+        elif discriminant > 0:
+            result = workerBee.solve_quadratic_equation()
+            print("X1 = " + str(result[0]))
+            print("X2 = " + str(result[1]))
+
     else:
         print("The polynomial degree is strictly greater than 2, I can't solve.")
 
